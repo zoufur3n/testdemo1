@@ -1,0 +1,77 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.videoContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    /* 确保视频在其他内容后面 */
+}
+
+.video-js {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    object-fit:fill;
+    /* 确保视频覆盖容器 */
+    padding-top: 0 !important;
+    overflow: hidden;
+    video{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+}
+
+.content {
+    z-index: 1;
+    display: block;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    left: 0;
+    height: 100%;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    .text{
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+    }
+    transition: transform 0.5s ease-out;
+}
+.displayNone{
+    z-index: 0;
+    display: none;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
+.page2{
+    background: black;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: block;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition: transform 0.5s ease-out;
+}
+.active {
+    display: block; /* 显示当前页面 */
+}
+.slideIn {
+    transform: translateY(100%);
+}
+.slideOut {
+    transform: translateY(-100%);
+}

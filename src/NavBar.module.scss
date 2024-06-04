@@ -1,0 +1,24 @@
+.navBar {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+  }
+  li {
+    position: relative;
+  }
+  .progressBar {
+    width: 0%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: #4caf50;
+    transition: width 0.25s ease-out;
+  }
+}
