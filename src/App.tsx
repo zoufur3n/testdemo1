@@ -6,6 +6,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import videojs from 'video.js';
 import Player from 'video.js/dist/types/player';
 
+import intro from '../resources/intro.mp4';
 import style from './App.module.scss';
 import Navbar from './NavBar';
 import ScrollText from './ScrollText';
@@ -52,7 +53,7 @@ function App() {
         )}
       >
         <video ref={videoRef} className={style['video-js']} playsInline>
-          <source src="../resources/intro.mp4" type="video/mp4" />
+          <source src={intro} type="video/mp4" />
           {/* <source src="YOUR_VIDEO.webm" type="video/webm" /> */}
           <p className="vjs-no-js">
             To view this video please enable JavaScript, and consider upgrading to a web
