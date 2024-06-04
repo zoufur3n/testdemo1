@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 // import logo from './logo.svg';
 import videojs from 'video.js';
+import Player from 'video.js/dist/types/player';
 
 import style from './App.module.scss';
 import Navbar from './NavBar';
@@ -16,7 +17,7 @@ function App() {
   useEffect(() => {
     console.log(scrollProgress);
     if (videoRef.current) {
-      videoRef.current = videojs(videoRef.current, {
+      (videoRef.current as Player) = videojs(videoRef.current, {
         autoplay: true,
         loop: true,
         muted: true,
@@ -25,14 +26,14 @@ function App() {
         debug: false,
       });
 
-      videoRef.current.on('ready', () => {
+      (videoRef.current as Player).on('ready', () => {
         console.log('Background video is ready!');
       });
     }
 
     return () => {
       if (videoRef.current) {
-        videoRef.current.dispose();
+        (videoRef.current as Player).dispose();
       }
     };
   }, []);
