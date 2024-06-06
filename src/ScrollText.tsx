@@ -76,13 +76,21 @@ const ScrollFollowText: React.FC<ScrollFollowTextProps> = ({
 
     const maxScrollSpeed = (paragraphs.length - visibleParagraphs) * paragraphHeight;
     const progress = scrollSpeed / maxScrollSpeed;
-    // console.log(progress);
     onScrollProgress(progress);
     if (progress === 1) {
       setShowPage('2');
     } else {
       setShowPage('1');
     }
+    const handleWheel = (event: WheelEvent) => {
+      if (event.deltaY > 0 && progress === 1) {
+        // 进度条满时向下滚动
+        setShowPage('2');
+      } else {
+        setShowPage('1');
+      }
+    };
+    window.addEventListener('wheel', handleWheel);
   }, [
     scrollSpeed,
     paragraphs.length,

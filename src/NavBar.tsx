@@ -21,7 +21,7 @@ const Navbar = ({ setShowPage, scrollProgress }: Props) => {
               setShowPage('1');
             }}
           >
-            Section 1
+            Page 1
           </a>
           <div
             style={{ width: `${scrollProgress * 100}%` }}
@@ -35,7 +35,7 @@ const Navbar = ({ setShowPage, scrollProgress }: Props) => {
               setShowPage('2');
             }}
           >
-            Section 2
+            Page 2
           </a>
           <div className={classNames(styles.progressBar)}></div>
         </li>

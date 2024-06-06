@@ -9,6 +9,7 @@ import Player from 'video.js/dist/types/player';
 import intro from '../resources/intro.mp4';
 import style from './App.module.scss';
 import Navbar from './NavBar';
+import SecondPage from './Page2';
 import ScrollText from './ScrollText';
 function App() {
   const videoRef = useRef(null);
@@ -69,16 +70,7 @@ function App() {
         </video>
         <ScrollText setShowPage={setShowPage} onScrollProgress={setScrollProgress} />
       </div>
-      <div
-        className={classNames(
-          style.page2,
-          // style.slideIn,
-          showPage !== '2' && (style.displayNone, style.slideOut),
-        )}
-        onScroll={() => {
-          setShowPage('1');
-        }}
-      ></div>
+      <SecondPage setShowPage={setShowPage} showPage={showPage} />
     </div>
   );
 }

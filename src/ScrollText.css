@@ -57,4 +57,9 @@
     white-space: nowrap;
     user-select: none;
   }
+  @media screen and (max-width: 767px) {
+    .scroll-content p {
+      font-size: 22px; /* 你可以根据需要调整这个值 */
+    }
+  }
   
